@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context.xsd"> 
+
+<bean id="triangle" class="org.MessageSource.ToGet.TextFromPropertyFiles.Triangle">
+<property name="pointA" ref="pointA"/>
+<property name="pointB" ref="pointB"/>
+<property name="pointC" ref="pointC"/>
+</bean>
+<bean id="pointA" class="org.MessageSource.ToGet.TextFromPropertyFiles.Point">
+<property name="x" value="0"/>
+<property name="y" value="0"/>
+</bean>
+<bean id="pointB" class="org.MessageSource.ToGet.TextFromPropertyFiles.Point">
+<property name="x" value="10"/>
+<property name="y" value="10"/>
+</bean>
+<bean id="pointC" class="org.MessageSource.ToGet.TextFromPropertyFiles.Point">
+<property name="x" value="20"/>
+<property name="y" value="20"/>
+</bean>
+<bean id="circle" class="org.MessageSource.ToGet.TextFromPropertyFiles.Circle">
+</bean>
+<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+<property name="basenames">
+<list> 
+<value>mynamemessages</value>
+</list>
+</property>
+</bean>
+
+<context:annotation-config/>
+
+<context:component-scan base-package="org.MessageSource.ToGet.TextFromPropertyFiles"/>
+</beans>
